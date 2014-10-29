@@ -1,20 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,100,300,700);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 
-$primary: #white;
-$accent: #777;
+$primary: dodgerblue;
+$accent: #333;
 $accent2: #2c54d6;
-$button: #333;
+$red: crimson;
+$green: #2cd638;
+$blue: gold;
 
 body {
   font-family: 'Raleway', serif;
   background: $primary;
 }
 
+nav {
+  margin: 15px auto 0;
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    li {
+      padding: 10px 45px;
+      background: darken($primary, 13%);
+      &:nth-child(2) {
+        background: lighten($primary, 13%);
+      }
+      a {
+        color: black;
+        text-decoration: none;
+        &:visited {
+          color: black;
+        }
+        &:hover {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+header {
+  margin: 15px auto;
+  h1 {
+    text-align: center;
+    font-size: 9.6vw;
+    font-weight: 700;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 10px 7px;
+      padding: 8px 25px;
+      background: $green;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      &:nth-child(2) {
+        background: $red;
+      }
+    }
+  }
+}
+
 section {
-  width: 280px;
+  width: 267px;
   margin: auto;
   h1 {
+    font-family: 'Lobster';
     font-weight: 700;
     text-align: center;
     color: $accent;
@@ -38,12 +93,18 @@ section {
     justify-content: space-between;
     margin-bottom: 20px;
     button {
-      width: 32%;
+      width: 30%;
       padding: 8px 6px;
-      background: $button;
-      border: 2px solid $accent;
+      background: $green;
+      border: none;
       outline: none;
-      color: white;
+      font-weight: 400;
+      &:nth-child(2) {
+        background: $blue;
+      }
+      &:nth-child(3) {
+        background: $red
+      }
     }
   }
 }
@@ -54,12 +115,12 @@ figure {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  border-top: 3px solid $button;
+  border-top: 3px solid $accent;
   div {
     padding: 10px;
     font-family: 'Shadows Into Light';
     font-size: 22px;
     font-weight: 300;
-    color: $button;
+    color: $accent;
   }
 }

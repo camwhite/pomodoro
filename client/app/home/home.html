@@ -1,4 +1,18 @@
-<h1><timer interval="1" countdown="1500000">{{ countdown | date: 'mm:ss'}}</timer></h1>
+<nav>
+  <ul>
+    <li><a sref="work">Work</a></li>
+    <li><a sref="break">Break</a></li>
+  </ul>
+</nav>
+<header>
+  <h1>
+    <timer interval="1000" countdown="1500" ng-init="stopTimer()">{{ minutes }}:{{ sseconds }}</timer>
+  </h1>
+  <div class="controls">
+    <button ng-click="startTimer()">Start</button>
+    <button ng-click="stopTimer()">Stop</button>
+  </div>
+</header>
 <section>  
   <h1 class="main-title">KnockItOut</h1>
   <input type="text" placeholder="Task" ng-model="name" />
@@ -11,6 +25,6 @@
 </section>
 <figure ng-repeat="task in tasks">
   <div class="task">{{ task.name }}</div>
-  <div class="description">{{ task.description}}</div>
+  <div class="description">{{ task.description }}</div>
 </figure>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js"></script>

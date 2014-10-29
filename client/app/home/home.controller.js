@@ -2,7 +2,7 @@ app = angular.module('blocitoffApp');
 
 app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
 
-  $scope.timerRunning = true;
+  $scope.timerRunning = false;
  
   $scope.startTimer = function (){
       $scope.$broadcast('timer-start');
@@ -15,6 +15,7 @@ app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
   };
 
   $scope.$on('timer-stopped', function (event, data){
+      timer = data;
       console.log('Timer Stopped - data = ', data);
   });
 
