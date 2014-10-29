@@ -1,20 +1,14 @@
 <nav>
+  <h1>KnockItOut</h1>
   <ul>
-    <li><a sref="work">Work</a></li>
-    <li><a sref="break">Break</a></li>
+    <tabs class="tabs"><a ui-sref=".work">Work</a></tabs>
+    <tabs class="tabs"><a ui-sref=".break">Break</a></tabs>
   </ul>
 </nav>
 <header>
-  <h1>
-    <timer interval="1000" countdown="1500" ng-init="stopTimer()">{{ minutes }}:{{ sseconds }}</timer>
-  </h1>
-  <div class="controls">
-    <button ng-click="startTimer()">Start</button>
-    <button ng-click="stopTimer()">Stop</button>
-  </div>
+  <div ui-view></div>
 </header>
 <section>  
-  <h1 class="main-title">KnockItOut</h1>
   <input type="text" placeholder="Task" ng-model="name" />
   <input type="text" placeholder="Description" ng-model="description" />
   <div class="controls">

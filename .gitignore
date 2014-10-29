@@ -7,3 +7,8 @@ dist
 /server/config/local.env.js
 /server/local.ns
 /server/mongod.lock
+/client/.DS_Store
+/client/app/.DS_Store
+/client/app/home/.DS_Store
+/client/assets/.DS_Store
+.DS_Store

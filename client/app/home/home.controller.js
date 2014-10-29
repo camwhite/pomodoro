@@ -69,3 +69,15 @@ app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
   }
 
 }]);
+
+app.directive('tabs', function() {
+  return {
+    restrict: 'E',
+    link: function(scope, element) {
+      $(element).click(function() {
+        $(this).css('background-color', '#6e8e94');
+        $(this).siblings().css('background-color', '#bacacc');
+      });
+    }
+  };
+});

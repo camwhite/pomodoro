@@ -1,13 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Lobster);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,100,300,700);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 
-$primary: dodgerblue;
+$primary: #94ACB0;
 $accent: #333;
 $accent2: #2c54d6;
-$red: crimson;
-$green: #2cd638;
-$blue: gold;
+$red: #CA4436;
+$green: #CCDB79;
+$blue: #FFDD49;
 
 body {
   font-family: 'Raleway', serif;
@@ -15,13 +16,24 @@ body {
 }
 
 nav {
+  position: relative;
   margin: 15px auto 0;
+  h1 {
+    font-family: 'Lobster';
+    font-size: 9.9vw;
+    font-weight: 700;
+    text-align: center;
+    color: $accent;
+  }
   ul {
+    margin-left: -26px;
     display: flex;
     justify-content: center;
+    align-self: middle;
     list-style: none;
-    li {
-      padding: 10px 45px;
+    .tabs {
+      margin: 0;
+      padding: 10px 65px;
       background: darken($primary, 13%);
       &:nth-child(2) {
         background: lighten($primary, 13%);
@@ -45,6 +57,7 @@ header {
   margin: 15px auto;
   h1 {
     text-align: center;
+    font-family: 'Cutive Mono';
     font-size: 9.6vw;
     font-weight: 700;
   }
@@ -52,12 +65,13 @@ header {
     display: flex;
     justify-content: center;
     button {
-      margin: 10px 7px;
+      margin: 5px 7px 10px;
       padding: 8px 25px;
       background: $green;
       border-radius: 5px;
       border: none;
       outline: none;
+      font-weight: 700;
       &:nth-child(2) {
         background: $red;
       }
@@ -67,13 +81,7 @@ header {
 
 section {
   width: 267px;
-  margin: auto;
-  h1 {
-    font-family: 'Lobster';
-    font-weight: 700;
-    text-align: center;
-    color: $accent;
-  }
+  margin: 20px auto;
   input {
     display: block;
     width: 267px;
@@ -98,7 +106,7 @@ section {
       background: $green;
       border: none;
       outline: none;
-      font-weight: 400;
+      font-weight: 700;
       &:nth-child(2) {
         background: $blue;
       }
