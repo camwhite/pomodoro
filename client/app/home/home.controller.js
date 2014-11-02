@@ -1,23 +1,39 @@
 app = angular.module('blocitoffApp');
 
-app.controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('HomeCtrl', ['$scope', '$http', '$interval', function($scope, $http, $interval) {
 
-  $scope.timerRunning = false;
- 
-  $scope.startTimer = function (){
-      $scope.$broadcast('timer-start');
-      $scope.timerRunning = true;
-  };
+  $scope.startTime = function(timeLeft) {
+    
+    sound = new buzz.sound( '/assets/sounds/whoop', {
+      formats: ['mp3'],
+      preload: true
+    });
 
-  $scope.stopTimer = function (){
-      $scope.$broadcast('timer-stop');
-      $scope.timerRunning = false;
-  };
+    $scope.timeLeft = timeLeft;
 
-  $scope.$on('timer-stopped', function (event, data){
-      timer = data;
-      console.log('Timer Stopped - data = ', data);
-  });
+    $scope.disabled = true;
+    
+    time = $interval(function() {
+      $scope.timeLeft--;
+      if($scope.timeLeft <= 0) {
+        $scope.disabled = true;
+        $interval.cancel(time);
+        sound.play();
+      }
+    }, 1000);
+  }
+  
+  $scope.stopTime = function() {
+    $scope.disabled = false;
+    
+    $interval.cancel(time);
+  }
+  
+  $scope.resetTime = function(time) {
+    $scope.disabled = false;
+    
+    $scope.timeLeft = time;
+  }
 
   $scope.name = '';
   $scope.description = '';
@@ -80,4 +96,29 @@ app.directive('tabs', function() {
       });
     }
   };
+});
+
+app.filter('timecode', function() {
+  return function(seconds) {
+    seconds = Number.parseFloat(seconds);
+
+    if(Number.isNaN(seconds)) {
+      return '-:--';
+    }
+
+    var wholeSeconds = Math.floor(seconds);
+    var minutes = Math.floor(wholeSeconds / 60);
+
+    remainingSeconds = wholeSeconds % 60;
+
+    output = minutes + ':';
+
+    if(remainingSeconds < 10) {
+      output += '0';
+    }
+
+    output += remainingSeconds;
+
+    return output;
+  }
 });

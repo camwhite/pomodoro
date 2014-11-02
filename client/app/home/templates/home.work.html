@@ -1,7 +1,10 @@
-<h1>
-  <timer interval="1000" countdown="1500" ng-init="stopTimer()">{{ minutes }}:{{ sseconds }}</timer>
-</h1>
-<div class="controls">
-  <button ng-click="startTimer()">Start</button>
-  <button ng-click="stopTimer()">Stop</button>
+<div class="timer" ng-init="startTime(1500)">
+  <h1>
+    {{ timeLeft | timecode }}
+  </h1>
+  <div class="controls">
+    <button ng-click="startTime(1500)" ng-disabled="disabled">Start</button>
+    <button ng-click="stopTime()" ng-disabled="!disabled">Stop</button>
+    <button ng-click="resetTime(1500)">Reset</button>
+  </div>
 </div>
