@@ -15,7 +15,7 @@ app.controller('HomeCtrl', ['$scope', '$http', '$interval', function($scope, $ht
     
     time = $interval(function() {
       $scope.timeLeft--;
-      if($scope.timeLeft <= 0) {
+      if($scope.timeLeft === 0) {
         $scope.disabled = true;
         $interval.cancel(time);
         sound.play();

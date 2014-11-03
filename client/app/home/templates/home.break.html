@@ -3,8 +3,8 @@
     {{ timeLeft | timecode }}
   </h1>
   <div class="controls">
-    <button ng-click="startTime(300)" ng-disabled="disabled">Start</button>
+    <button ng-click="startTime(timeLeft)" ng-disabled="disabled">Start</button>
     <button ng-click="stopTime()" ng-disabled="!disabled">Stop</button>
-    <button ng-click="resetTime(300)">Reset</button>
+    <button ng-click="resetTime(300)" ng-disabled="disabled">Reset</button>
   </div>
 </div>
